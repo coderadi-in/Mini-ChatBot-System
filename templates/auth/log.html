@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/icons/favicon.ico') }}" type="image/x-icon">
+    <title>LOGIN &bull; coderadi ChatBot</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='base/_utility.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth/log.css') }}">
+</head>
+
+<body class="center p-20">
+    <div class="content column center gap-12 p-12 rounded-12">
+        <div class="modes flex">
+            <span class="mode link p-12 selected" id="signup">Signup</span>
+            <span class="mode link p-12" id="login">Login</span>
+        </div>
+
+        <form action="/auth/signup" method="post" class="form column gap-12 w-full" id="signupForm">
+            <input required type="text" name="name" placeholder="Name" class="input">
+            <input required type="email" name="email" placeholder="Email" class="input">
+            <input required type="password" name="password" placeholder="Password" class="input">
+            <button type="submit" class="btn fl rounded-4 pv-12 w-full">Signup</button>
+        </form>
+        
+        <form action="/auth/login" method="post" class="form column gap-12 w-full" id="loginForm">
+            <input required type="email" name="email" placeholder="Email" class="input">
+            <input required type="password" name="password" placeholder="Password" class="input">
+            <button type="submit" class="btn fl rounded-4 pv-12 w-full">Login</button>
+        </form>
+    </div>
+
+    <script type="module" src="{{ url_for('static', filename='js/auth/log.js') }}"></script>
+</body>
+
+</html>

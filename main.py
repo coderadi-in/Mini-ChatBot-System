@@ -11,7 +11,8 @@ load_dotenv('.venv/vars.env')
 
 from flask import Flask, redirect, url_for
 import os
-from plugins import bind_plugins
+from models.user import User
+from plugins import bind_plugins, current_user, logger, db, init
 from routers import bind_routers
 
 # ==================================================
@@ -19,6 +20,8 @@ from routers import bind_routers
 # ==================================================
 
 server = Flask(__name__)
+server.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DB_URI')
+server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 server.config['SECRET_KEY'] = os.getenv('SEC_KEY')
 
 # ==================================================
@@ -29,9 +32,24 @@ bind_plugins(server)
 bind_routers(server)
 
 # ==================================================
-# & INITIAL ROUTE
+# ! DB INIT
 # ==================================================
+
+with server.app_context():
+    if (not os.path.exists('migrations')): init()
+    db.create_all()
+
+# ==================================================
+# & INITIAL ROUTES
+# ==================================================
+
+# & USER LOADER
+@logger.user_loader
+def load_user(user):
+    return User.query.get(user)
 
 @server.route('/')
 def initialize():
-    return redirect(url_for('app.index'))
+    if (current_user.is_authenticated):
+        return redirect(url_for('app.index'))
+    return redirect(url_for('auth.index'))

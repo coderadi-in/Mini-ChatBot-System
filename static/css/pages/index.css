@@ -33,7 +33,7 @@
 /* ================================================== */
 
 body {
-    background-image: url('/static/assets/themes/bg-mc-001.png');
+    background-image: url('/static/assets/themes/bg-mc-002.webp');
     background-position: center;
     background-size: cover;
 }
@@ -79,6 +79,7 @@ body {
     width: 100%;
     background-color: var(--color-surface-alt);
     border: 1px solid var(--color-accent-main);
+    backdrop-filter: blur(2px);
 }
 
 .prompt-area .message-box .input { flex-grow: 1; }

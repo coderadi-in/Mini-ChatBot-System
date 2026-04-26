@@ -219,9 +219,9 @@ html {
 /* SIZE */
 /* ================================================== */
 
-.w-auto { width: auto; }
-.w-full { width: 100%; }
-.w-fit { width: fit-content; }
+.w-auto { width: auto !important; }
+.w-full { width: 100% !important; }
+.w-fit { width: fit-content !important; }
 .h-auto { height: auto; }
 .h-full { height: 100%; }
 .h-screen { height: 100dvh; }
@@ -344,6 +344,7 @@ html {
 }
 
 textarea.input { resize: none; }
+.input::placeholder { color: var(--color-text-alt); }
 
 .btn {
     background-color: transparent;

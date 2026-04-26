@@ -3,6 +3,10 @@
 # ==================================================
 
 from flask_socketio import SocketIO
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
+from flask_migrate import Migrate, migrate, init, upgrade
+from flask_bcrypt import Bcrypt
 from openai import OpenAI
 import os
 
@@ -11,6 +15,10 @@ import os
 # ==================================================
 
 socket = SocketIO()
+db = SQLAlchemy()
+logger = LoginManager()
+migrator = Migrate()
+encoder = Bcrypt()
 
 # ==================================================
 # * FUNCTIONS
@@ -22,6 +30,10 @@ def bind_plugins(server):
     """Binds all plugins to the server."""
 
     socket.init_app(server)
+    db.init_app(server)
+    logger.init_app(server)
+    migrator.init_app(server, db)
+    encoder.init_app(server)
 
 
 # * FUNCTION TO SEND MESSAGE TO MODEL
@@ -59,8 +71,7 @@ def get_response(message):
 
 
 # ==================================================
-# ! FILE OUTPUT LIST
+# ! INTEGRATE CHAT EVENT HANDLERS
 # ==================================================
 
-__all__ = ["bind_plugins", "socket"]
 from . import _chat

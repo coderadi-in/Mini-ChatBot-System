@@ -19,9 +19,15 @@
                 <span class="text fs-36">coderadi</span>
             </a>
 
-            <button class="btn" id="settingsBtn" aria-label="open settings">
-                <span class="symbol highlight">settings</span>
-            </button>
+            <div class="controls row gap-12">
+                <button class="btn" id="settingsBtn" aria-label="open settings">
+                    <span class="symbol highlight">settings</span>
+                </button>
+
+                <button class="btn" id="profileBtn" aria-label="open profile">
+                    <span class="symbol highlight">person</span>
+                </button>
+            </div>
         </section>
     </header>
 
@@ -55,7 +61,9 @@
         </section>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+        integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+        crossorigin="anonymous"></script>
     <script type="module" src="{{ url_for('static', filename='js/pages/index.js') }}"></script>
     <script type="module" src="{{ url_for('static', filename='js/base/_chat.js') }}"></script>
 </body>
