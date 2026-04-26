@@ -1,0 +1,89 @@
+/* ================================================== */
+/* & KEYFRAMES */
+/* ================================================== */
+
+@keyframes oscillate {
+    0%, 50%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-4px); }
+    75% { transform: translateY(4px); }
+}
+
+/* ================================================== */
+/* LOADER VIEW */
+/* ================================================== */
+
+.loader-view {
+    background-color: var(--color-surface-main);
+    padding: 8px 16px;
+    border-radius: 9999px;
+    backdrop-filter: blur(4px);
+    display: none;
+}
+
+.loader-view svg {
+    animation: oscillate 0.6s ease infinite;
+    fill: var(--color-text-main);
+}
+
+.loader-view svg:nth-child(2) { animation-delay: 100ms; }
+.loader-view svg:nth-child(3) { animation-delay: 200ms; }
+
+/* ================================================== */
+/* BODY */
+/* ================================================== */
+
+body {
+    background-image: url('/static/assets/themes/bg-mc-001.png');
+    background-position: center;
+    background-size: cover;
+}
+
+/* ================================================== */
+/* HEADER */
+/* ================================================== */
+
+.header {
+    background-color: var(--color-surface-main);
+    backdrop-filter: blur(4px);
+}
+
+/* ================================================== */
+/* CHATS */
+/* ================================================== */
+
+.chats { flex-grow: 1; }
+
+.chats .message {
+    max-width: 568px;
+    width: fit-content;
+    background-color: var(--color-surface-alt);
+    backdrop-filter: blur(4px);
+}
+
+.chats .message.user {
+    margin-left: auto;
+    text-align: right;
+}
+
+.chats .message.ai {
+    margin-right: auto;
+    text-align: left;
+}
+
+/* ================================================== */
+/* PROMPT AREA */
+/* ================================================== */
+
+.prompt-area .message-box {
+    max-width: 768px;
+    width: 100%;
+    background-color: var(--color-surface-alt);
+    border: 1px solid var(--color-accent-main);
+}
+
+.prompt-area .message-box .input { flex-grow: 1; }
+
+.prompt-area .message-box .btn {
+    height: fit-content;
+    margin-top: auto;
+}

@@ -17,4 +17,4 @@ app = Blueprint('app', __name__, url_prefix='/app')
 # & BASE ROUTE
 @app.route('/')
 def index():
-    return "Index page"
+    return render_template('pages/index.html')

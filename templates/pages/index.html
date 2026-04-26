@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/icons/favicon.ico') }}" type="image/x-icon">
+    <title>CHAT &bull; coderadi ChatBot</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='base/_utility.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/index.css') }}">
+</head>
+
+<body class="column gap-12">
+    <header class="header">
+        <section class="section p-20 row h-sb">
+            <a href="/app/" class="link">
+                <span class="text fs-36">coderadi</span>
+            </a>
+
+            <button class="btn" id="settingsBtn" aria-label="open settings">
+                <span class="symbol highlight">settings</span>
+            </button>
+        </section>
+    </header>
+
+    <section class="chats" id="chats">
+        <section class="section p-48 column gap-4"></section>
+    </section>
+
+    <section class="prompt-area">
+        <section class="section p-20 column center gap-12">
+            <div class="loader-view">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="4" cy="4" r="4" fill="#F4F4F6" />
+                </svg>
+
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="4" cy="4" r="4" fill="#F4F4F6" />
+                </svg>
+
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="4" cy="4" r="4" fill="#F4F4F6" />
+                </svg>
+            </div>
+
+            <div class="message-box rounded-16 p-16 flex gap-4">
+                <textarea name="prompt" id="prompt" class="input" placeholder="Type a message"></textarea>
+
+                <button class="btn fl p-12 rounded-full" id="sendMessageBtn" aria-label="send message" disabled>
+                    <span class="symbol">send</span>
+                </button>
+            </div>
+        </section>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script type="module" src="{{ url_for('static', filename='js/pages/index.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/base/_chat.js') }}"></script>
+</body>
+
+</html>

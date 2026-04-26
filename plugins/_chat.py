@@ -2,12 +2,14 @@
 # ? IMPORTS
 # ==================================================
 
-from main import server
-from plugins import socket
+from . import socket, get_response
 
 # ==================================================
-# ! RUN COMMAND
+# & EVENTS
 # ==================================================
 
-if (__name__ == "__main__"):
-    socket.run(server, debug=True, host='0.0.0.0', allow_unsafe_werkzeug=True)
+# & SEND EVENT
+@socket.on('send')
+def recv_message(message):
+    response = get_response(message)
+    socket.emit('recv', response)
