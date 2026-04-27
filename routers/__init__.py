@@ -4,6 +4,7 @@
 
 from .app import app
 from .auth import auth
+from .account import account
 
 # ==================================================
 # * FUNCTIONS
@@ -15,9 +16,4 @@ def bind_routers(server):
 
     server.register_blueprint(app)
     server.register_blueprint(auth)
-
-# ==================================================
-# ! FILE OUTPUT LIST
-# ==================================================
-
-__all__ = [ 'bind_routers', 'app', 'auth' ]
+    server.register_blueprint(account)

@@ -1,0 +1,47 @@
+<section class="widget center" id="settingsWidget" data-trigger="settingsBtn">
+    <section class="widget-content bg-card p-16 rounded-16 column gap-16">
+        <div class="head column gap-4">
+            <div class="row h-sb">
+                <h2 class="h2">Settings</h2>
+                <span class="symbol link closeWidget">close</span>
+            </div>
+
+            <hr class="divider">
+        </div>
+
+        <div class="body column gap-12">
+            <form action="/account/update/instructions" method="post" class="form column gap-12">
+                <div class="column gap-8">
+                    <h3 class="h3">ChatBot</h3>
+
+                    <div class="column gap-4">
+                        <label for="role">Role</label>
+                        <input type="text" name="role" id="role" placeholder="Friend, Mentor, etc." value="{{ current_user.ai_role }}" class="input">
+                    </div>
+
+                    <div class="column gap-4">
+                        <label for="language">Language & Tone</label>
+                        <input type="text" name="language" id="language" value="{{ current_user.ai_language }}" placeholder="English, Hinglish, etc."
+                            class="input">
+                    </div>
+                </div>
+
+                <div class="column gap-8">
+                    <h3 class="h3">You</h3>
+
+                    <div class="column gap-4">
+                        <label for="nickname">Nickname</label>
+                        <input type="text" name="nickname" id="nickname" placeholder="What should chatbot call you?" value="{{ current_user.nickname }}" class="input">
+                    </div>
+                    
+                    <div class="column gap-4">
+                        <label for="work">Work/Profession</label>
+                        <input type="text" name="work" id="work" placeholder="What do you do?" value="{{ current_user.work }}" class="input">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn fl rounded-4 ph-16 pv-12">Save</button>
+            </form>
+        </div>
+    </section>
+</section>

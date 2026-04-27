@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/widgets/profile.css') }}">
+
+<section class="widget center" id="profileWidget" data-trigger="profileBtn">
+    <section class="widget-content bg-card p-16 rounded-16 column gap-16">
+        <div class="head column gap-4">
+            <div class="row h-sb">
+                <h2 class="h2">Profile</h2>
+                <span class="symbol link closeWidget">close</span>
+            </div>
+
+            <hr class="divider">
+        </div>
+
+        <div class="body column gap-20 h-sb">
+            <form action="/account/update/profile" method="post" class="form column gap-12">
+                <div class="data column gap-4">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="{{ current_user.name }}" value="{{ current_user.name }}" class="input">
+                </div>
+                
+                <div class="data column gap-4">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" placeholder="{{ current_user.email }}" value="{{ current_user.email }}" class="input">
+                </div>
+
+                <button type="submit" class="btn fl rounded-4 pv-12 ph-16">Update</button>
+            </form>
+
+            <a href="/auth/logout" class="link logout btn icon-fl rounded-4 ph-16 pv-8">
+                <span class="symbol">logout</span>
+                <span class="text">Logout</span>
+            </a>
+        </div>
+    </section>
+</section>

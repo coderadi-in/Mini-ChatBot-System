@@ -51,14 +51,13 @@ def get_response(message):
             api_key=api_key,
         )
 
+        system_prompt = current_user.custom_instructions
+
         response = model.responses.create(
             model="gpt-5.1",
             input=[
-                {
-                    "role": "system",
-                    "content": "You've to give small responses, and talk like an old friend in HINGLISH.",
-                },
-                {"role": "user", "content": message},
+                { "role": "system", "content": system_prompt },
+                { "role": "user", "content": message },
             ],
             temperature=0.7,
             max_output_tokens=500,
@@ -66,9 +65,8 @@ def get_response(message):
 
         return response.output_text
 
-    except Exception as e:
+    except:
         socket.emit("recv", "Something went wrong while generating response!")
-
 
 # ==================================================
 # ! INTEGRATE CHAT EVENT HANDLERS

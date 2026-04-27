@@ -8,11 +8,15 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/icons/favicon.ico') }}" type="image/x-icon">
     <title>CHAT &bull; coderadi ChatBot</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='base/_utility.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/_utility.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/_widget.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/index.css') }}">
 </head>
 
 <body class="column gap-12">
+    {% include 'widgets/profile.html' %}
+    {% include 'widgets/settings.html' %}
+
     <header class="header">
         <section class="section p-20 row h-sb">
             <a href="/app/" class="link">
@@ -66,6 +70,7 @@
         crossorigin="anonymous"></script>
     <script type="module" src="{{ url_for('static', filename='js/pages/index.js') }}"></script>
     <script type="module" src="{{ url_for('static', filename='js/base/_chat.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/base/_widget.js') }}"></script>
 </body>
 
 </html>

@@ -1,0 +1,15 @@
+/* ================================================== */
+/* WIDGET CONTENT */
+/* ================================================== */
+
+#profileWidget .widget-content { min-height: 256px; }
+
+/* ================================================== */
+/* LOGOUT BTN */
+/* ================================================== */
+
+#profileWidget .logout.btn {
+    background-color: var(--color-state-red);
+    color: var(--color-accent-main) !important;
+    margin-left: auto;
+}

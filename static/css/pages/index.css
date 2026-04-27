@@ -36,6 +36,7 @@ body {
     background-image: url('/static/assets/themes/bg-mc-002.webp');
     background-position: center;
     background-size: cover;
+    height: 100dvh;
 }
 
 /* ================================================== */
@@ -51,13 +52,17 @@ body {
 /* CHATS */
 /* ================================================== */
 
-.chats { flex-grow: 1; }
+.chats {
+    flex-grow: 1;
+    overflow-y: auto;
+}
 
 .chats .message {
-    max-width: 568px;
+    max-width: 768px;
     width: fit-content;
     background-color: var(--color-surface-alt);
     backdrop-filter: blur(4px);
+    text-wrap: wrap;
 }
 
 .chats .message.user {
@@ -78,7 +83,7 @@ body {
     max-width: 768px;
     width: 100%;
     background-color: var(--color-surface-alt);
-    border: 1px solid var(--color-accent-main);
+    border: 1px solid var(--color-bg-card);
     backdrop-filter: blur(2px);
 }
 

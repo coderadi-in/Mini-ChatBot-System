@@ -1,0 +1,33 @@
+/* ================================================== */
+/* WIDGET WRAP */
+/* ================================================== */
+
+.widget {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    backdrop-filter: blur(2px);
+    transition: visibility 0.5s, opacity 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.widget.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ================================================== */
+/* WIDGET CONTENT */
+/* ================================================== */
+
+.widget .widget-content {
+    max-width: 768px;
+    width: 100%;
+}
+
+.widget .form .input {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}

@@ -84,3 +84,9 @@ def login():
     # REDIRECT USER TO CHAT PAGE
     flash("Welcome back to chatbot!", "waving_hand")
     return redirect(url_for('app.index'))
+
+# & LOGOUT ROUTE
+@auth.route('/logout')
+def logout():
+    logout_user()
+    return redirect('/')
