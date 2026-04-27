@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base/_utility.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base/_widget.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/index.css') }}">
+
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#121317">
 </head>
 
 <body class="column gap-12">
@@ -71,6 +74,12 @@
     <script type="module" src="{{ url_for('static', filename='js/pages/index.js') }}"></script>
     <script type="module" src="{{ url_for('static', filename='js/base/_chat.js') }}"></script>
     <script type="module" src="{{ url_for('static', filename='js/base/_widget.js') }}"></script>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("{{ url_for('static', filename='sw.js') }}");
+        }
+    </script>
 </body>
 
 </html>
