@@ -51,6 +51,7 @@ def signup():
     # ADD NEW USER TO DB
     db.session.add(new_user)
     db.session.commit()
+    login_user(new_user)
 
     # REDIRECT USER TO CHAT PAGE
     flash("Welcome to chatbot!", "waving_hand")
