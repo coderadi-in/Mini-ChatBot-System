@@ -40,7 +40,7 @@ def bind_plugins(server):
 def get_response(message):
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        socket.emit("recv", "There're issues in the backend!")
+        return "There're issues in the backend!"
 
     try:
         model = OpenAI(
@@ -63,7 +63,7 @@ def get_response(message):
         return response.output_text
 
     except Exception as e:
-        socket.emit("recv", "Something went wrong while generating response!")
+        return "Something went wrong while generating response!"
         print(e)
 
 # ==================================================
