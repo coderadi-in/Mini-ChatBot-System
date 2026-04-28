@@ -51,7 +51,7 @@ def get_response(message):
         system_prompt = current_user.custom_instructions
 
         response = model.responses.create(
-            model="gpt-5.1",
+            model="openai/gpt-4o-mini",
             input=[
                 { "role": "system", "content": system_prompt },
                 { "role": "user", "content": message },
@@ -63,8 +63,8 @@ def get_response(message):
         return response.output_text
 
     except Exception as e:
-        return "Something went wrong while generating response!"
         print(e)
+        return "Something went wrong while generating response!"
 
 # ==================================================
 # ! INTEGRATE CHAT EVENT HANDLERS

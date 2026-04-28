@@ -20,6 +20,5 @@ class User(db.Model, UserMixin):
     work = db.Column(db.String)
     custom_instructions = db.Column(
         db.TEXT,
-        default="""You have to talk to the user as a/an Friend.
-Use English language tone to talk.""",
+        default="""You have to talk to the user as a/an Friend.in english language.""",
     )

@@ -49,10 +49,8 @@ def update_instructions():
     work = request.form.get('work', current_user.work)
 
     # BUILD CUSTOM INSTRUCTION PROMPT
-    custom_instruction = f'''You have to talk to the user as a/an {role}.
-Use {language} language tone to talk.
-The user wants you to call him/her {nickname}.
-And he/she has mentioned following work/occupation/profession:
+    custom_instruction = f'''You have to talk to the user as a/an {role} in {language} language.
+User wants you to call him/her {nickname} and has mentioned following occupation:
 {work}'''
     
     # UPDATE INSTRUCTION
