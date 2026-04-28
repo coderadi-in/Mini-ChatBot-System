@@ -41,9 +41,6 @@ def get_response(message):
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         socket.emit("recv", "There're issues in the backend!")
-        raise RuntimeError(
-            "OPENAI_API_KEY is missing. Add it to .venv/vars.env or your environment variables."
-        )
 
     try:
         model = OpenAI(
@@ -65,8 +62,9 @@ def get_response(message):
 
         return response.output_text
 
-    except:
+    except Exception as e:
         socket.emit("recv", "Something went wrong while generating response!")
+        print(e)
 
 # ==================================================
 # ! INTEGRATE CHAT EVENT HANDLERS
